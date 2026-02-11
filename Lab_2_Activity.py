@@ -37,7 +37,7 @@ uart = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=0.25)
 # uart = serial.Serial("/dev/ttyUSB0", baudrate=9600, timeout=0.25)
 
 # Connect to a PM2.5 sensor over UART
-# from adafruit_pm25.uart import PM25_UART
+from adafruit_pm25.uart import PM25_UART
 pm25 = PM25_UART(uart, reset_pin)
 
 # Create library object, use 'slow' 100KHz frequency!
@@ -77,4 +77,5 @@ while True:
     print("Particles > 2.5um / 0.1L air:", aqdata["particles 25um"])
     print("Particles > 5.0um / 0.1L air:", aqdata["particles 50um"])
     print("Particles > 10 um / 0.1L air:", aqdata["particles 100um"])
+
     print("---------------------------------------")
