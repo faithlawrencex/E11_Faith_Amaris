@@ -6,6 +6,7 @@ Example sketch to connect to PM2.5 sensor with either I2C or UART.
 """
 
 import time
+import datetime
 
 import board
 import busio
@@ -47,9 +48,9 @@ pm25 = PM25_UART(uart, reset_pin)
 
 print("Found PM2.5 sensor, reading data...")
 
-Time = 0
+Time_ = 0
 
-while time < 30:
+while Time_ < 30:
     time.sleep(1)
 
     try:
@@ -58,9 +59,10 @@ while time < 30:
     except RuntimeError:
         print("Unable to read from sensor, retrying...")
         continue
-	time_current = time.time()
-	print(f"Time Stamp: {time_current}")
-    
+
+	timestamp = datetime.datetime.now()
+	print(f"Time Stamp: {timestamp}")
+	
     print()
     print("Concentration Units (standard)")
     print("---------------------------------------")
@@ -83,7 +85,8 @@ while time < 30:
     print("Particles > 10 um / 0.1L air:", aqdata["particles 100um"])
 
     print("---------------------------------------")
-    time += 1
+    Time_ += 1
+
 
 
 
