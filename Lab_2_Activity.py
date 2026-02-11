@@ -59,7 +59,7 @@ while time < 30:
         print("Unable to read from sensor, retrying...")
         continue
 	time_current = time.time()
-	print("Time Stamp": {time_current}")
+	print(f"Time Stamp: {time_current}")
     
     print()
     print("Concentration Units (standard)")
@@ -84,5 +84,6 @@ while time < 30:
 
     print("---------------------------------------")
     time += 1
+
 
 
