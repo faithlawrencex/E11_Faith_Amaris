@@ -60,8 +60,8 @@ while Time_ < 30:
         print("Unable to read from sensor, retrying...")
         continue
 
-	timestamp = datetime.datetime.now()
-	print(f"Time Stamp: {timestamp}")
+    timestamp = datetime.datetime.now()
+    print(f"Time Stamp: {timestamp}")
 	
     print()
     print("Concentration Units (standard)")
@@ -86,6 +86,7 @@ while Time_ < 30:
 
     print("---------------------------------------")
     Time_ += 1
+
 
 
 
