@@ -66,7 +66,7 @@ while Time_ < 30:
     except RuntimeError:
         print("Unable to read from sensor, retrying...")
         continue
-    csvwriter.writerow([time.ctime(), aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"], aqdata["pm10 env"], aqdata["pm25 env"], aqdata["pm100 env"], aqdata["particles 03um"], aqdata["particles 05um"], aqdata["particles 10um"], aqdata["particles 25um"], aqdata["particles 50um"], aqdata["particles 100um"])  
+    csvwriter.writerow([time.ctime(), aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"], aqdata["pm10 env"], aqdata["pm25 env"], aqdata["pm100 env"], aqdata["particles 03um"], aqdata["particles 05um"], aqdata["particles 10um"], aqdata["particles 25um"], aqdata["particles 50um"], aqdata["particles 100um"]])  
 
     timestamp = datetime.datetime.now()
     print(f"Time Stamp: {timestamp}")
@@ -95,6 +95,7 @@ while Time_ < 30:
     print("---------------------------------------")
     Time_ += 1
 file.close()
+
 
 
 
