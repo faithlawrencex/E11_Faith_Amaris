@@ -1,5 +1,5 @@
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 data = pd.read_csv('data/air.csv')
 
