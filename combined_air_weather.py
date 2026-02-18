@@ -65,8 +65,8 @@ csvwriter.writerow(['time', 'pm10 std', 'pm25 std', 'pm100 std', 'pm10 env', 'pm
 while Time_ < 30:
     time.sleep(1)
 
-    print("Temperature: %0.1f C" % bme680.temperature) 
-	print("Gas: %d ohm" % bme680.gas) 
+    print("Temperature: %0.1f C" % bme680.temperature)
+    print("Gas: %d ohm" % bme680.gas) 
     print("Humidity: %0.1f %%" % bme680.relative_humidity)
     print("Pressure: %0.3f hPa" % bme680.pressure)
     print("Altitude = %0.2f meters" % bme680.altitude)
