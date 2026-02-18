@@ -56,15 +56,11 @@ print("Found PM2.5 sensor, reading data...")
 
 Time_ = 0
 
-file = open('data/air.csv', 'w', newline = None)
-air_csvwriter = csv.writer(file, delimiter = ',')
+file = open('data/combined.csv', 'w', newline = None)
+csvwriter = csv.writer(file, delimiter = ',')
 
-air_csvwriter.writerow(['time', 'pm10 std', 'pm25 std', 'pm100 std', 'pm10 env', 'pm24 env', 'pm100 env', 'par03', 'par05', 'par10', 'par25', 'par50', 'par100'])
+csvwriter.writerow(['time', 'pm10 std', 'pm25 std', 'pm100 std', 'pm10 env', 'pm24 env', 'pm100 env', 'par03', 'par05', 'par10', 'par25', 'par50', 'par100', 'Time','Temperature', 'Gas', 'Humidity', 'Pressure', 'Altitude'])
 
-file = open('data/weather.csv', 'w', newline = None)
-weather_csvwriter = csv.writer(file, delimiter = ',')
-
-air_csvwriter.writerow(['Time','Temperature', 'Gas', 'Humidity', 'Pressure', 'Altitude'])
 
 while Time_ < 30:
     time.sleep(1)
@@ -75,15 +71,13 @@ while Time_ < 30:
 	print("Pressure: %0.3f hPa" % bme680.pressure)
 	print("Altitude = %0.2f meters" % bme680.altitude)
 
-    weather_csvwriter.writerow([time.ctime(), bme680.temperature, bme680.gas, bme680.relative_humidity, bme680.pressure, bme680.altitude]) 
-
     try:
         aqdata = pm25.read()
         # print(aqdata)
     except RuntimeError:
         print("Unable to read from sensor, retrying...")
         continue
-    air_csvwriter.writerow([time.ctime(), aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"], aqdata["pm10 env"], aqdata["pm25 env"], aqdata["pm100 env"], aqdata["particles 03um"], aqdata["particles 05um"], aqdata["particles 10um"], aqdata["particles 25um"], aqdata["particles 50um"], aqdata["particles 100um"]])  
+    csvwriter.writerow([time.ctime(), aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"], aqdata["pm10 env"], aqdata["pm25 env"], aqdata["pm100 env"], aqdata["particles 03um"], aqdata["particles 05um"], aqdata["particles 10um"], aqdata["particles 25um"], aqdata["particles 50um"], aqdata["particles 100um"], bme680.temperature, bme680.gas, bme680.relative_humidity, bme680.pressure, bme680.altitude])  
 
     timestamp = datetime.datetime.now()
     print(f"Time Stamp: {timestamp}")
