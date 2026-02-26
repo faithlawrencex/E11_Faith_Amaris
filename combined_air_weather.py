@@ -61,6 +61,7 @@ csvwriter = csv.writer(file, delimiter = ',')
 
 csvwriter.writerow(['time', 'pm10 std', 'pm25 std', 'pm100 std', 'pm10 env', 'pm24 env', 'pm100 env', 'par03', 'par05', 'par10', 'par25', 'par50', 'par100', 'Time','Temperature', 'Gas', 'Humidity', 'Pressure', 'Altitude'])
 
+time.sleep(60)
 
 while Time_ < 300:
     time.sleep(1)
