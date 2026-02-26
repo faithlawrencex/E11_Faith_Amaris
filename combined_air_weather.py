@@ -56,7 +56,7 @@ print("Found PM2.5 sensor, reading data...")
 
 Time_ = 0
 
-file = open('data/in_combined.csv', 'w', newline = None)
+file = open('data/new_combined.csv', 'w', newline = None)
 csvwriter = csv.writer(file, delimiter = ',')
 
 csvwriter.writerow(['time', 'pm10 std', 'pm25 std', 'pm100 std', 'pm10 env', 'pm24 env', 'pm100 env', 'par03', 'par05', 'par10', 'par25', 'par50', 'par100', 'Time','Temperature', 'Gas', 'Humidity', 'Pressure', 'Altitude'])
