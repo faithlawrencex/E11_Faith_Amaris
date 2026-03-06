@@ -108,3 +108,4 @@ while Time_ < 300:
     Time_ += 1
 file.close()
 
+#for lab 6, added a delayed start time and changed name of where the data was going to be stored. Other places where air quality may be significantly worse is a work station where theres lots of debris in the air, or in a city with a lot of traffic
